@@ -44,7 +44,6 @@ h1 {
 
 .banner-image-carousel {
   display: inline;
-
 }
 
 .banner-title {
@@ -121,41 +120,39 @@ h1 {
   }
 }
 
-
 @media (min-width: 450px) and (max-width: 600px) {
   .banner-block {
     margin: 100px 0px 140px 0px;
   }
+}
 
-  .banner-title {
-    font-size: 29px;
-    margin-bottom: -30px;
-  }
+.banner-title {
+  font-size: 29px;
+  margin-bottom: -30px;
+}
 
-  .navbar-list {
-    font-size: 20px;
-  }
+.navbar-list {
+  font-size: 20px;
+}
 
-  .landing-page {
-    padding: 10px 10px;
-  }
+.landing-page {
+  padding: 10px 10px;
+}
 
-  /*--Content-Block--*/
-  .text-title {
-    font-size: 24px;
-  }
+/*--Content-Block--*/
+.text-title {
+  font-size: 24px;
+}
 
-  .text-description {
-    font-size: 14px;
-  }
+.text-description {
+  font-size: 14px;
+}
 
-  .footer-block {
-    margin-top: 150px;
-  }
+.footer-block {
+  margin-top: 150px;
+}
 
-  .footer-links {
-    display: block;
-    font-size: 12px;
-  }
-
-
+.footer-links {
+  display: block;
+  font-size: 12px;
+}
