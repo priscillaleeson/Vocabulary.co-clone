@@ -42,10 +42,6 @@ h1 {
   margin: 150px 0px;
 }
 
-.banner-image-carousel {
-  display: inline;
-}
-
 .banner-title {
   position: relative;
   z-index: 5;
@@ -55,7 +51,7 @@ h1 {
 }
 
 .banner-image {
-  position: relative;
+  position: absolute;
   z-index: 1;
   display: block;
   width: 100%;
