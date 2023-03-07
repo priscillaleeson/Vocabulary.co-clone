@@ -39,7 +39,7 @@ h1 {
   font-weight: 100;
 }
 .banner-block {
-  margin: 150px 0px;
+  margin: 240px 0px 150px 0px;
 }
 
 .banner-title {
@@ -51,7 +51,7 @@ h1 {
 }
 .banner-image-carousel {
   position: relative;
-  aspect-ratio: 1.5;
+  aspect-ratio: 1.8;
 }
 .banner-image {
   position: absolute;
@@ -160,5 +160,39 @@ h1 {
   .footer-links {
     display: block;
     font-size: 12px;
+  }
+}
+
+@media (min-width: 300px) and (max-width: 449px) {
+  .landing-page {
+    padding: 15px 9px 30px 9px;
+  }
+
+  .navbar-list {
+    font-size: 19px;
+  }
+
+  .banner-block {
+    margin: 85px 0px 130px 0px;
+  }
+  .banner-title {
+    font-size: 28px;
+    margin-bottom: -28px;
+  }
+
+  .text-title {
+    font-size: 22px;
+  }
+
+  .text-description {
+    font-size: 12.7px;
+  }
+  .footer-block {
+    margin-top: 90px;
+  }
+  .footer-links {
+    display: block;
+    font-size: 10px;
+    margin-top: 7px;
   }
 }

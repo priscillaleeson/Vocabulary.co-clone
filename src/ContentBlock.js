@@ -2,7 +2,8 @@ export const ContentBlock = () => {
   return (
     <div className="content-block">
       <div className="text-title">
-        We design brands and experiences that transform companies.
+        We design brands and experiences
+        <br /> that transform companies.
       </div>
       <div className="text-description">
         Our partners come from the top global agencies, bringing decades of
