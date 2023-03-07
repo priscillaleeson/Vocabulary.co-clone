@@ -1,6 +1,6 @@
 export const FooterBlock = () => {
   return (
-    <div>
+    <div className="footer-block">
       <img
         className="footer-logo"
         src="https://vocabulary.co/images/vocabulary.svg"
