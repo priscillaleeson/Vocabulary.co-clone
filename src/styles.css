@@ -49,6 +49,26 @@ h1 {
   font-family: "PT Serif", serif;
   margin-bottom: -63px;
 }
+
+.left-side-carousel {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0px;
+  background-color: red;
+  z-index: 8;
+}
+
+.right-side-carousel {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-color: blue;
+  width: 50%;
+  height: 100%;
+  z-index: 7;
+}
+
 .banner-image-carousel {
   position: relative;
   aspect-ratio: 1.8;
