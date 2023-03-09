@@ -1,16 +1,48 @@
 import { PhotosList } from "./PhotosList";
+import { useState } from "react";
 
 export const Banner = () => {
-  const photo = PhotosList.map((photo) => {
+  const [activeImageId, setActiveImageId] = useState(0);
+
+  const photoItems = PhotosList.map((photo) => {
     return (
-      <img
-        className="banner-image"
-        alt={photo.name}
-        src={photo.url}
-        key={photo.id}
-      />
+      <li key={photo.id}>
+        <img
+          className="banner-image"
+          alt={photo.name}
+          src={photo.url}
+          id={photo.id}
+          style={{ zIndex: activeImageId === photo.id ? 5 : 0 }}
+        />
+      </li>
     );
   });
+
+  console.log(photoItems);
+
+  //Click handler logic to loop through the photoslist
+  const lastPhotoIndex = PhotosList.length - 1;
+  const firstPhotoId = PhotosList[0].id;
+
+  const handlePrevClick = () => {
+    activeImageId === firstPhotoId
+      ? // active image is first image. set to last photo
+        setActiveImageId(lastPhotoIndex)
+      : // is not first image. go back one image
+        setActiveImageId(activeImageId - 1);
+    console.log("prevclicked");
+  };
+
+  const handleNextClick = () => {
+    activeImageId === lastPhotoIndex
+      ? setActiveImageId(firstPhotoId)
+      : setActiveImageId(activeImageId + 1);
+    console.log("nextclicked");
+  };
+
+  /*const handleReset = () => {
+    setActiveImageId(firstPhotoId);
+  };*/
 
   return (
     <div className="banner-block">
@@ -20,18 +52,31 @@ export const Banner = () => {
         </h1>
       </div>
       <div>
-        <BannerImageCarousel>{photo}</BannerImageCarousel>
+        <BannerImageCarousel
+          handlePrevClick={handlePrevClick}
+          handleNextClick={handleNextClick}
+        >
+          <ul>{photoItems}</ul>
+        </BannerImageCarousel>
+      </div>
+      <div>
+        {/*<button>Prev</button>
+        <button >Next</button>*/}
       </div>
     </div>
   );
 };
 
-const BannerImageCarousel = ({ children }) => {
+const BannerImageCarousel = ({
+  handlePrevClick,
+  handleNextClick,
+  children,
+}) => {
   return (
     <div className="banner-image-carousel">
       <div className="right-left-clicks-carousel">
-        <div className="left-side-carousel"></div>
-        <div className="right-side-carousel"></div>
+        <div className="left-side-carousel" onClick={handlePrevClick}></div>
+        <div className="right-side-carousel" onClick={handleNextClick}></div>
       </div>
       {children}
     </div>

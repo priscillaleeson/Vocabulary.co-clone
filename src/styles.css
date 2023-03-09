@@ -44,29 +44,29 @@ h1 {
 
 .banner-title {
   position: relative;
-  z-index: 5;
+  z-index: 8;
   font-size: 60px;
   font-family: "PT Serif", serif;
   margin-bottom: -63px;
 }
 
-.left-side-carousel {
-  position: absolute;
-  width: 50%;
-  height: 100%;
-  top: 0px;
-  background-color: red;
-  z-index: 8;
-}
-
+.left-side-carousel,
 .right-side-carousel {
   position: absolute;
-  top: 0px;
-  right: 0px;
-  background-color: blue;
   width: 50%;
   height: 100%;
   z-index: 7;
+}
+.left-side-carousel {
+  top: 0px;
+  left: 0px;
+  background-color: transparent;
+}
+
+.right-side-carousel {
+  top: 0px;
+  right: 0px;
+  background-color: transparent;
 }
 
 .banner-image-carousel {
