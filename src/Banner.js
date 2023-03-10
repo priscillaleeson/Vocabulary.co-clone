@@ -1,5 +1,6 @@
 import { PhotosList } from "./PhotosList";
 import { useState } from "react";
+import { LeftCursor, RightCursor } from "./Custom-Cursor";
 
 export const Banner = () => {
   const [activeImageId, setActiveImageId] = useState(0);
@@ -47,9 +48,7 @@ export const Banner = () => {
   return (
     <div className="banner-block">
       <div className="banner-title">
-        <h1>
-          Brand is Experience. <br /> Experience is Brand.
-        </h1>
+        <h1>Transform your brand. Transform your business.</h1>
       </div>
       <div>
         <BannerImageCarousel
@@ -75,8 +74,12 @@ const BannerImageCarousel = ({
   return (
     <div className="banner-image-carousel">
       <div className="right-left-clicks-carousel">
-        <div className="left-side-carousel" onClick={handlePrevClick}></div>
-        <div className="right-side-carousel" onClick={handleNextClick}></div>
+        <div className="left-side-carousel" onClick={handlePrevClick}>
+          <LeftCursor />
+        </div>
+        <div className="right-side-carousel" onClick={handleNextClick}>
+          <RightCursor />
+        </div>
       </div>
       {children}
     </div>

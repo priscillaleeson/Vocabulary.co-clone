@@ -2,6 +2,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
   color: rgb(30, 30, 30);
 }
 
@@ -40,6 +43,7 @@ h1 {
 }
 .banner-block {
   margin: 240px 0px 150px 0px;
+  cursor: none;
 }
 
 .banner-title {
@@ -48,6 +52,7 @@ h1 {
   font-size: 60px;
   font-family: "PT Serif", serif;
   margin-bottom: -63px;
+  letter-spacing: 2px;
 }
 
 .left-side-carousel,
@@ -127,6 +132,15 @@ h1 {
   font-weight: 100;
 }
 
+/* Cursor */
+.left-side-cursor,
+.right-side-cursor {
+  position: relative;
+  font-size: 16px;
+  font-family: "Work Sans", sans-serif;
+  color: white;
+  z-index: 20;
+}
 /* Media Queries */
 
 @media (min-width: 750px) and (max-width: 1230px) {
