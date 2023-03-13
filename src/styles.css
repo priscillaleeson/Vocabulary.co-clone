@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+a:visited {
+  color: black;
+}
+
 body {
   color: rgb(30, 30, 30);
 }
