@@ -5,7 +5,7 @@ export const NavBar = () => {
         <a href="#">Vocabulary</a>
       </div>
       <div className="contact-link">
-        <a>Contact</a>
+        <a href="#">Contact</a>
       </div>
     </div>
   );
