@@ -92,21 +92,25 @@ const BannerImageCarousel = ({
   const handleLeftMouseEnter = () => {
     //console.log("I entered");
     leftCursorRef.current.style.opacity = 1;
+    leftCursorRef.current.style.fontSize = "18px";
   };
 
   const handleLeftMouseLeave = () => {
     //console.log("I left");
     leftCursorRef.current.style.opacity = 0;
+    leftCursorRef.current.style.fontSize = "8px";
   };
 
   const handleRightMouseEnter = () => {
-    //console.log("I entered");
+    console.log("I entered");
     rightCursorRef.current.style.opacity = 1;
+    rightCursorRef.current.style.fontSize = "18px";
   };
 
   const handleRightMouseLeave = () => {
-    //console.log("I left");
+    console.log("I left");
     rightCursorRef.current.style.opacity = 0;
+    rightCursorRef.current.style.fontSize = "8px";
   };
 
   return (

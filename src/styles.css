@@ -140,11 +140,11 @@ h1 {
 .left-side-cursor,
 .right-side-cursor {
   display: inline;
-  font-size: 16px;
   font-family: "Work Sans", sans-serif;
   color: white;
   pointer-events: none;
   user-select: none;
+  transition: font-size 0.5s, opacity 0.2s;
 }
 /* Media Queries */
 
