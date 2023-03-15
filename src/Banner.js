@@ -1,5 +1,5 @@
 import { PhotosList } from "./PhotosList";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { LeftCursor, RightCursor } from "./Custom-Cursor";
 
 export const Banner = () => {
@@ -71,17 +71,50 @@ const BannerImageCarousel = ({
   handleNextClick,
   children,
 }) => {
+  const leftCursorRef = useRef(null);
+  const rightCursorRef = useRef(null);
+
+  const handleLeftMouseMove = (e) => {
+    leftCursorRef.current.style.top = `${e.clientY}px`;
+    leftCursorRef.current.style.left = `${e.clientX}px`;
+    console.log(`${e.clientX}px, ${e.clientY}px`);
+  };
+
+  const handleRightMouseMove = (e) => {
+    rightCursorRef.current.style.top = `${e.clientY}px`;
+    rightCursorRef.current.style.left = `${e.clientX}px`;
+    console.log(e.clientX, e.clientY);
+  };
+
   return (
     <div className="banner-image-carousel">
       <div className="right-left-clicks-carousel">
-        <div className="left-side-carousel" onClick={handlePrevClick}>
-          <LeftCursor />
+        <div
+          className="left-side-carousel"
+          onClick={handlePrevClick}
+          onMouseMove={handleLeftMouseMove}
+        >
+          <LeftCursor cursorref={leftCursorRef} />
         </div>
-        <div className="right-side-carousel" onClick={handleNextClick}>
-          <RightCursor />
+        <div
+          className="right-side-carousel"
+          onClick={handleNextClick}
+          onMouseMove={handleRightMouseMove}
+        >
+          <RightCursor cursorref={rightCursorRef} />
         </div>
       </div>
       {children}
     </div>
   );
 };
+
+//ref.current.style; margin-top; fixed position-- top left: 0px;
+
+//add ref to the previous and next
+//move it to top: 50, left: 50
+// try to move it first
+//go to deve tools -- used fixed position;
+//move my thing to position; style-left= x;
+//top + left
+//point a ref to it--> style outside of react in dom-- set top & left

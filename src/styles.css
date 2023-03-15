@@ -63,7 +63,7 @@ h1 {
   position: absolute;
   width: 50%;
   height: 100%;
-  z-index: 7;
+  z-index: 40;
 }
 .left-side-carousel {
   top: 0px;
@@ -138,11 +138,10 @@ h1 {
 /* Cursor */
 .left-side-cursor,
 .right-side-cursor {
-  position: relative;
+  display: inline;
   font-size: 16px;
   font-family: "Work Sans", sans-serif;
   color: white;
-  z-index: 20;
 }
 /* Media Queries */
 
