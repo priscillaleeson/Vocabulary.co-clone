@@ -71,19 +71,42 @@ const BannerImageCarousel = ({
   handleNextClick,
   children,
 }) => {
+  const [isCursorInsideDiv, setIsCursorInsideDiv] = useState(false);
   const leftCursorRef = useRef(null);
   const rightCursorRef = useRef(null);
 
   const handleLeftMouseMove = (e) => {
+    setIsCursorInsideDiv(true);
     leftCursorRef.current.style.top = `${e.clientY}px`;
     leftCursorRef.current.style.left = `${e.clientX}px`;
-    console.log(`${e.clientX}px, ${e.clientY}px`);
+    //console.log(`${e.clientX}px, ${e.clientY}px`);
   };
 
   const handleRightMouseMove = (e) => {
+    setIsCursorInsideDiv(true);
     rightCursorRef.current.style.top = `${e.clientY}px`;
     rightCursorRef.current.style.left = `${e.clientX}px`;
-    console.log(e.clientX, e.clientY);
+    //console.log(`${e.clientX}px, ${e.clientY}px`);
+  };
+
+  const handleLeftMouseEnter = () => {
+    //console.log("I entered");
+    leftCursorRef.current.style.opacity = 1;
+  };
+
+  const handleLeftMouseLeave = () => {
+    //console.log("I left");
+    leftCursorRef.current.style.opacity = 0;
+  };
+
+  const handleRightMouseEnter = () => {
+    //console.log("I entered");
+    rightCursorRef.current.style.opacity = 1;
+  };
+
+  const handleRightMouseLeave = () => {
+    //console.log("I left");
+    rightCursorRef.current.style.opacity = 0;
   };
 
   return (
@@ -93,6 +116,8 @@ const BannerImageCarousel = ({
           className="left-side-carousel"
           onClick={handlePrevClick}
           onMouseMove={handleLeftMouseMove}
+          onMouseEnter={handleLeftMouseEnter}
+          onMouseLeave={handleLeftMouseLeave}
         >
           <LeftCursor cursorref={leftCursorRef} />
         </div>
@@ -100,6 +125,8 @@ const BannerImageCarousel = ({
           className="right-side-carousel"
           onClick={handleNextClick}
           onMouseMove={handleRightMouseMove}
+          onMouseEnter={handleRightMouseEnter}
+          onMouseLeave={handleRightMouseLeave}
         >
           <RightCursor cursorref={rightCursorRef} />
         </div>
