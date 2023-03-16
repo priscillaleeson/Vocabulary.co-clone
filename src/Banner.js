@@ -71,19 +71,16 @@ const BannerImageCarousel = ({
   handleNextClick,
   children,
 }) => {
-  const [isCursorInsideDiv, setIsCursorInsideDiv] = useState(false);
   const leftCursorRef = useRef(null);
   const rightCursorRef = useRef(null);
 
   const handleLeftMouseMove = (e) => {
-    setIsCursorInsideDiv(true);
     leftCursorRef.current.style.top = `${e.clientY}px`;
     leftCursorRef.current.style.left = `${e.clientX}px`;
     //console.log(`${e.clientX}px, ${e.clientY}px`);
   };
 
   const handleRightMouseMove = (e) => {
-    setIsCursorInsideDiv(true);
     rightCursorRef.current.style.top = `${e.clientY}px`;
     rightCursorRef.current.style.left = `${e.clientX}px`;
     //console.log(`${e.clientX}px, ${e.clientY}px`);

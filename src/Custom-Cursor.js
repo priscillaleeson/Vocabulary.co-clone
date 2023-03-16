@@ -25,8 +25,8 @@ export const RightCursor = (props) => {
         ref={props.cursorref}
         style={{
           position: "fixed",
-          top: 100,
-          left: 250,
+          top: 0,
+          left: 0,
           opacity: props.opacity,
         }}
 
