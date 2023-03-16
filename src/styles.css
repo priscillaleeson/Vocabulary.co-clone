@@ -5,7 +5,15 @@
 }
 
 a:visited {
-  color: black;
+  color: rgb(30, 30, 30);
+}
+
+a:active {
+  color: rgb(30, 30, 30);
+}
+
+a {
+  color: rgb(30, 30, 30);
 }
 
 body {
@@ -235,8 +243,9 @@ h1 {
     margin: 85px 0px 130px 0px;
   }
   .banner-title {
-    font-size: 28px;
-    margin-bottom: -28px;
+    font-size: 27px;
+    margin-bottom: -18px;
+    line-height: 1.2;
   }
 
   .text-title {
@@ -244,7 +253,7 @@ h1 {
   }
 
   .text-description {
-    font-size: 12.7px;
+    font-size: 0.9rem;
   }
   .footer-block {
     margin-top: 90px;
@@ -253,10 +262,6 @@ h1 {
     display: block;
     font-size: 10px;
     margin-top: 7px;
-  }
-
-  .text-description {
-    line-height: 1.2;
   }
 
   .left-side-cursor,
