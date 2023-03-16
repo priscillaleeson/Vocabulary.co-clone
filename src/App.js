@@ -1,17 +1,17 @@
 import "./styles.css";
-//import { NavBar } from "./NavBar";
+import { NavBar } from "./NavBar";
 import { Banner } from "./Banner";
-//import { ContentBlock } from "./ContentBlock";
-//import { FooterBlock } from "./FooterBlock";
+import { ContentBlock } from "./ContentBlock";
+import { FooterBlock } from "./FooterBlock";
 
 export default function LandingPage() {
   return (
     <div className="landing-page">
-      {/*<NavBar />*/}
+      <NavBar />
       <BodyMargin>
         <Banner />
-        {/*<ContentBlock />*}
-        {/*<FooterBlock />*/}
+        <ContentBlock />
+        <FooterBlock />
       </BodyMargin>
     </div>
   );
