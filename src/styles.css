@@ -139,12 +139,12 @@ h1 {
 /* Cursor */
 .left-side-cursor,
 .right-side-cursor {
-  display: inline;
+  display: inline-block;
   font-family: "Work Sans", sans-serif;
   color: white;
   pointer-events: none;
   user-select: none;
-  transition: font-size 0.5s, opacity 0.2s;
+  transition: font-size 0.5s, opacity 0.1s;
 }
 /* Media Queries */
 
@@ -198,6 +198,11 @@ h1 {
     font-size: 20px;
   }
 
+  .left-side-cursor,
+  .right-side-cursor {
+    visibility: hidden;
+  }
+
   /*--Content-Block--*/
   .text-title {
     font-size: 24px;
@@ -248,5 +253,14 @@ h1 {
     display: block;
     font-size: 10px;
     margin-top: 7px;
+  }
+
+  .text-description {
+    line-height: 1.2;
+  }
+
+  .left-side-cursor,
+  .right-side-cursor {
+    visibility: hidden;
   }
 }

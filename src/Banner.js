@@ -98,7 +98,7 @@ const BannerImageCarousel = ({
   const handleLeftMouseLeave = () => {
     //console.log("I left");
     leftCursorRef.current.style.opacity = 0;
-    leftCursorRef.current.style.fontSize = "8px";
+    leftCursorRef.current.style.fontSize = "1px";
   };
 
   const handleRightMouseEnter = () => {
@@ -110,10 +110,11 @@ const BannerImageCarousel = ({
   const handleRightMouseLeave = () => {
     console.log("I left");
     rightCursorRef.current.style.opacity = 0;
-    rightCursorRef.current.style.fontSize = "8px";
+    leftCursorRef.current.style.fontSize = "1px";
   };
 
   return (
+    //write a line of code so that onmouseleave for just the banner it fades.
     <div className="banner-image-carousel">
       <div className="right-left-clicks-carousel">
         <div
