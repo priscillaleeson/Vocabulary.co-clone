@@ -67,41 +67,42 @@ const BannerImageCarousel = ({
   handleNextClick,
   children,
 }) => {
+  //ref to access to the DOM elements outside of react
   const previousCursorRef = useRef(null);
   const nextCursorRef = useRef(null);
 
-  const handleLeftMouseMove = (e) => {
+  const handlePreviousMouseMove = (e) => {
     previousCursorRef.current.style.top = `${e.clientY}px`;
     previousCursorRef.current.style.left = `${e.clientX}px`;
     //console.log(`${e.clientX}px, ${e.clientY}px`);
   };
 
-  const handleRightMouseMove = (e) => {
+  const handlePreviousMouseEnter = () => {
+    //console.log("Prev cursor entered");
+    previousCursorRef.current.style.opacity = 1;
+    previousCursorRef.current.style.fontSize = "18px";
+  };
+
+  const handlePreviousMouseLeave = () => {
+    //console.log("Prev cursor left");
+    previousCursorRef.current.style.opacity = 0;
+    previousCursorRef.current.style.fontSize = "1px";
+  };
+
+  const handleNextMouseMove = (e) => {
     nextCursorRef.current.style.top = `${e.clientY}px`;
     nextCursorRef.current.style.left = `${e.clientX}px`;
     //console.log(`${e.clientX}px, ${e.clientY}px`);
   };
 
-  const handleLeftMouseEnter = () => {
-    //console.log("I entered");
-    previousCursorRef.current.style.opacity = 1;
-    previousCursorRef.current.style.fontSize = "18px";
-  };
-
-  const handleLeftMouseLeave = () => {
-    //console.log("I left");
-    previousCursorRef.current.style.opacity = 0;
-    previousCursorRef.current.style.fontSize = "1px";
-  };
-
-  const handleRightMouseEnter = () => {
-    //console.log("I entered");
+  const handleNextMouseEnter = () => {
+    //console.log("Next cursor entered");
     nextCursorRef.current.style.opacity = 1;
     nextCursorRef.current.style.fontSize = "18px";
   };
 
-  const handleRightMouseLeave = () => {
-    //console.log("I left");
+  const handleNextMouseLeave = () => {
+    //console.log("Next cursor left");
     nextCursorRef.current.style.opacity = 0;
     nextCursorRef.current.style.fontSize = "1px";
   };
@@ -111,18 +112,18 @@ const BannerImageCarousel = ({
       <div
         className="left-side-carousel"
         onClick={handlePrevClick}
-        onMouseMove={handleLeftMouseMove}
-        onMouseEnter={handleLeftMouseEnter}
-        onMouseLeave={handleLeftMouseLeave}
+        onMouseMove={handlePreviousMouseMove}
+        onMouseEnter={handlePreviousMouseEnter}
+        onMouseLeave={handlePreviousMouseLeave}
       >
         <CustomCursor cursorname="Previous" cursorref={previousCursorRef} />
       </div>
       <div
         className="right-side-carousel"
         onClick={handleNextClick}
-        onMouseMove={handleRightMouseMove}
-        onMouseEnter={handleRightMouseEnter}
-        onMouseLeave={handleRightMouseLeave}
+        onMouseMove={handleNextMouseMove}
+        onMouseEnter={handleNextMouseEnter}
+        onMouseLeave={handleNextMouseLeave}
       >
         <CustomCursor cursorname="Next" cursorref={nextCursorRef} />
       </div>
