@@ -1,8 +1,8 @@
 import { PhotosList } from "./PhotosList";
 import { useState, useRef } from "react";
-import { LeftCursor, RightCursor } from "./Custom-Cursor";
+import { CustomCursor } from "./Custom-Cursor";
 
-export const Banner = () => {
+export const ClickThroughBanner = () => {
   const [activeImageId, setActiveImageId] = useState(0);
 
   const photoItems = PhotosList.map((photo) => {
@@ -21,7 +21,7 @@ export const Banner = () => {
 
   console.log(photoItems);
 
-  //Click handler logic to loop through the photoslist
+  //Click handler logic for prev and next buttons to loop through the photoslist
   const lastPhotoIndex = PhotosList.length - 1;
   const firstPhotoId = PhotosList[0].id;
 
@@ -58,10 +58,6 @@ export const Banner = () => {
           <ul>{photoItems}</ul>
         </BannerImageCarousel>
       </div>
-      <div>
-        {/*<button>Prev</button>
-        <button >Next</button>*/}
-      </div>
     </div>
   );
 };
@@ -71,79 +67,67 @@ const BannerImageCarousel = ({
   handleNextClick,
   children,
 }) => {
-  const leftCursorRef = useRef(null);
-  const rightCursorRef = useRef(null);
+  const previousCursorRef = useRef(null);
+  const nextCursorRef = useRef(null);
 
   const handleLeftMouseMove = (e) => {
-    leftCursorRef.current.style.top = `${e.clientY}px`;
-    leftCursorRef.current.style.left = `${e.clientX}px`;
+    previousCursorRef.current.style.top = `${e.clientY}px`;
+    previousCursorRef.current.style.left = `${e.clientX}px`;
     //console.log(`${e.clientX}px, ${e.clientY}px`);
   };
 
   const handleRightMouseMove = (e) => {
-    rightCursorRef.current.style.top = `${e.clientY}px`;
-    rightCursorRef.current.style.left = `${e.clientX}px`;
+    nextCursorRef.current.style.top = `${e.clientY}px`;
+    nextCursorRef.current.style.left = `${e.clientX}px`;
     //console.log(`${e.clientX}px, ${e.clientY}px`);
   };
 
   const handleLeftMouseEnter = () => {
     //console.log("I entered");
-    leftCursorRef.current.style.opacity = 1;
-    leftCursorRef.current.style.fontSize = "18px";
+    previousCursorRef.current.style.opacity = 1;
+    previousCursorRef.current.style.fontSize = "18px";
   };
 
   const handleLeftMouseLeave = () => {
     //console.log("I left");
-    leftCursorRef.current.style.opacity = 0;
-    leftCursorRef.current.style.fontSize = "1px";
+    previousCursorRef.current.style.opacity = 0;
+    previousCursorRef.current.style.fontSize = "1px";
   };
 
   const handleRightMouseEnter = () => {
-    console.log("I entered");
-    rightCursorRef.current.style.opacity = 1;
-    rightCursorRef.current.style.fontSize = "18px";
+    //console.log("I entered");
+    nextCursorRef.current.style.opacity = 1;
+    nextCursorRef.current.style.fontSize = "18px";
   };
 
   const handleRightMouseLeave = () => {
-    console.log("I left");
-    rightCursorRef.current.style.opacity = 0;
-    leftCursorRef.current.style.fontSize = "1px";
+    //console.log("I left");
+    nextCursorRef.current.style.opacity = 0;
+    nextCursorRef.current.style.fontSize = "1px";
   };
 
   return (
-    //write a line of code so that onmouseleave for just the banner it fades.
     <div className="banner-image-carousel">
-      <div className="right-left-clicks-carousel">
-        <div
-          className="left-side-carousel"
-          onClick={handlePrevClick}
-          onMouseMove={handleLeftMouseMove}
-          onMouseEnter={handleLeftMouseEnter}
-          onMouseLeave={handleLeftMouseLeave}
-        >
-          <LeftCursor cursorref={leftCursorRef} />
-        </div>
-        <div
-          className="right-side-carousel"
-          onClick={handleNextClick}
-          onMouseMove={handleRightMouseMove}
-          onMouseEnter={handleRightMouseEnter}
-          onMouseLeave={handleRightMouseLeave}
-        >
-          <RightCursor cursorref={rightCursorRef} />
-        </div>
+      <div
+        className="left-side-carousel"
+        onClick={handlePrevClick}
+        onMouseMove={handleLeftMouseMove}
+        onMouseEnter={handleLeftMouseEnter}
+        onMouseLeave={handleLeftMouseLeave}
+      >
+        <CustomCursor cursorname="Previous" cursorref={previousCursorRef} />
       </div>
+      <div
+        className="right-side-carousel"
+        onClick={handleNextClick}
+        onMouseMove={handleRightMouseMove}
+        onMouseEnter={handleRightMouseEnter}
+        onMouseLeave={handleRightMouseLeave}
+      >
+        <CustomCursor cursorname="Next" cursorref={nextCursorRef} />
+      </div>
+      {/*children holds the mapped photoItems*/}
       {children}
     </div>
   );
 };
-
-//ref.current.style; margin-top; fixed position-- top left: 0px;
-
-//add ref to the previous and next
-//move it to top: 50, left: 50
-// try to move it first
-//go to deve tools -- used fixed position;
-//move my thing to position; style-left= x;
-//top + left
-//point a ref to it--> style outside of react in dom-- set top & left

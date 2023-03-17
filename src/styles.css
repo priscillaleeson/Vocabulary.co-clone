@@ -144,9 +144,9 @@ h1 {
   font-weight: 100;
 }
 
-/* Cursor */
-.left-side-cursor,
-.right-side-cursor {
+/* Custom Cursor */
+
+.cursor {
   display: inline-block;
   font-family: "Work Sans", sans-serif;
   color: white;
@@ -264,8 +264,7 @@ h1 {
     margin-top: 7px;
   }
 
-  .left-side-cursor,
-  .right-side-cursor {
+  .cursor {
     visibility: hidden;
   }
 }
