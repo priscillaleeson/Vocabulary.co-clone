@@ -2,7 +2,7 @@ import { PhotosList } from "./PhotosList";
 import { useState, useRef } from "react";
 import { CustomCursor } from "./Custom-Cursor";
 
-export const ClickThroughBanner = () => {
+export const Banner = () => {
   const [activeImageId, setActiveImageId] = useState(0);
 
   const photoItems = PhotosList.map((photo) => {
@@ -19,17 +19,17 @@ export const ClickThroughBanner = () => {
     );
   });
 
-  console.log(photoItems);
+  //console.log(photoItems);
 
-  //Click handler logic for prev and next buttons to loop through the photoslist
+  //Click handler logic for prev and next buttons to loop through the photoslist manually
   const lastPhotoIndex = PhotosList.length - 1;
   const firstPhotoId = PhotosList[0].id;
 
   const handlePrevClick = () => {
     activeImageId === firstPhotoId
-      ? // active image is first image. set to last photo
+      ? // If active image is first image, set to last photo
         setActiveImageId(lastPhotoIndex)
-      : // is not first image. go back one image
+      : // If not first image, go back one image
         setActiveImageId(activeImageId - 1);
     console.log("prevclicked");
   };
@@ -68,6 +68,7 @@ const BannerImageCarousel = ({
   children,
 }) => {
   //ref to access to the DOM elements outside of react
+
   const previousCursorRef = useRef(null);
   const nextCursorRef = useRef(null);
 

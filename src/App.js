@@ -1,6 +1,6 @@
 import "./styles.css";
 import { NavBar } from "./NavBar";
-import { ClickThroughBanner } from "./Banner-Components/Banner";
+import { Banner } from "./Banner-Components/Banner";
 import { ContentBlock } from "./ContentBlock";
 import { FooterBlock } from "./FooterBlock";
 
@@ -9,7 +9,7 @@ export default function LandingPage() {
     <div className="landing-page">
       <NavBar />
       <BodyMargin>
-        <ClickThroughBanner />
+        <Banner />
         <ContentBlock />
         <FooterBlock />
       </BodyMargin>
