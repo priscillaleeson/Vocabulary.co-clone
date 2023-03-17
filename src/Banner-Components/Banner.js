@@ -3,8 +3,19 @@ import { useState, useRef } from "react";
 import { CustomCursor } from "./Custom-Cursor";
 
 export const Banner = () => {
-  const [activeImageId, setActiveImageId] = useState(0);
+  return (
+    <div className="banner-block">
+      <div className="banner-title">
+        <h1>Transform your brand. Transform your business.</h1>
+      </div>
+      <div>
+        <ClickableBannerImageBlock />
+      </div>
+    </div>
+  );
+};
 
+const Photos = (props) => {
   const photoItems = PhotosList.map((photo) => {
     return (
       <li key={photo.id}>
@@ -13,15 +24,23 @@ export const Banner = () => {
           alt={photo.name}
           src={photo.url}
           id={photo.id}
-          style={{ zIndex: activeImageId === photo.id ? 5 : 0 }}
+          style={{ zIndex: props.activeImageId === photo.id ? 5 : 0 }}
         />
       </li>
     );
   });
+  return (
+    <div>
+      <ul>{photoItems}</ul>
+    </div>
+  );
+};
 
-  //console.log(photoItems);
+const ClickableBannerImageBlock = ({ children }) => {
+  //managing images from PhotosList
+  const [activeImageId, setActiveImageId] = useState(0);
 
-  //Click handler logic for prev and next buttons to loop through the photoslist manually
+  //Click handler logic for prev and next buttons to loop through the PhotosList manually
   const lastPhotoIndex = PhotosList.length - 1;
   const firstPhotoId = PhotosList[0].id;
 
@@ -31,44 +50,21 @@ export const Banner = () => {
         setActiveImageId(lastPhotoIndex)
       : // If not first image, go back one image
         setActiveImageId(activeImageId - 1);
-    console.log("prevclicked");
+    //console.log("prevclicked");
   };
 
   const handleNextClick = () => {
     activeImageId === lastPhotoIndex
       ? setActiveImageId(firstPhotoId)
       : setActiveImageId(activeImageId + 1);
-    console.log("nextclicked");
+    //console.log("nextclicked");
   };
 
   /*const handleReset = () => {
     setActiveImageId(firstPhotoId);
   };*/
 
-  return (
-    <div className="banner-block">
-      <div className="banner-title">
-        <h1>Transform your brand. Transform your business.</h1>
-      </div>
-      <div>
-        <BannerImageCarousel
-          handlePrevClick={handlePrevClick}
-          handleNextClick={handleNextClick}
-        >
-          <ul>{photoItems}</ul>
-        </BannerImageCarousel>
-      </div>
-    </div>
-  );
-};
-
-const BannerImageCarousel = ({
-  handlePrevClick,
-  handleNextClick,
-  children,
-}) => {
-  //ref to access to the DOM elements outside of react
-
+  //Handling when custom cursor is shown within the ClickableBannerImageBlock
   const previousCursorRef = useRef(null);
   const nextCursorRef = useRef(null);
 
@@ -109,7 +105,7 @@ const BannerImageCarousel = ({
   };
 
   return (
-    <div className="banner-image-carousel">
+    <div className="clickable-banner-image-carousel">
       <div
         className="left-side-carousel"
         onClick={handlePrevClick}
@@ -128,8 +124,8 @@ const BannerImageCarousel = ({
       >
         <CustomCursor cursorname="Next" cursorref={nextCursorRef} />
       </div>
-      {/*children holds the mapped photoItems*/}
-      {children}
+      {/*{photoItems}*/}
+      <Photos activeImageId={activeImageId} />
     </div>
   );
 };

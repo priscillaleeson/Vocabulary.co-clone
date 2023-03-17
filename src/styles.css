@@ -85,7 +85,7 @@ h1 {
   background-color: transparent;
 }
 
-.banner-image-carousel {
+.clickable-banner-image-carousel {
   position: relative;
   aspect-ratio: 1.8;
 }
